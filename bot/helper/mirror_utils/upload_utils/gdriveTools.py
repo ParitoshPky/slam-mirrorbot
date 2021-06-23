@@ -378,8 +378,8 @@ class GoogleDriveHelper:
                 durl = self.__G_DRIVE_BASE_DOWNLOAD_URL.format(file.get("id"))
                 buttons = button_build.ButtonMaker()
                 if SHORTENER is not None and SHORTENER_API is not None:
-                    surl = requests.get(f'https://{SHORTENER}/api?api={SHORTENER_API}&url={durl}&format=text').text
-                    buttons.buildbutton("☁️ Drive Link", surl)
+                    #surl = requests.get(f'https://{SHORTENER}/api?api={SHORTENER_API}&url={durl}&format=text').text
+                    buttons.buildbutton("☁️ Drive Link", durl)
                 else:
                     buttons.buildbutton("☁️ Drive Link", durl)
                 try:
