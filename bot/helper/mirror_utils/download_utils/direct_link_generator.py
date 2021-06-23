@@ -106,6 +106,25 @@ def zippy_share(url: str) -> str:
 
     return f"https://{link}.zippyshare.com{js_content}"
 
+def get_pdisklink(link):
+  vgm_url = link
+  html_text = requests.get(vgm_url).text
+  #soup = BeautifulSoup(html_text, 'html.parser')
+  lst=list(html_text.split(" "))
+  c=0
+  for i in lst:
+    if i=="""class="video"><source""":
+      found=lst[c+1]
+      break
+    c+=1
+    
+  count=0
+  for i in found:
+    count+=1
+  #for i in range(5,count-1):
+  pdisk_link=found[5:count-1] 
+  return f"{pdisk_link}"
+
 
 def yandex_disk(url: str) -> str:
     """ Yandex.Disk direct links generator
