@@ -586,8 +586,8 @@ class GoogleDriveHelper:
                     furl = f"https://drive.google.com/uc?id={file.get('id')}&export=download"
                     msg += f"📄 <code>{file.get('name')}<br>({get_readable_file_size(int(file.get('size')))})</code><br>"
                     if SHORTENER is not None and SHORTENER_API is not None:
-                        sfurl = requests.get(f'https://{SHORTENER}/api?api={SHORTENER_API}&url={furl}&format=text').text
-                        msg += f"<b><a href={sfurl}>Drive Link</a></b>"
+                        # sfurl = requests.get(f'https://{SHORTENER}/api?api={SHORTENER_API}&url={furl}&format=text').text
+                        msg += f"<b><a href={furl}>Drive Link</a></b>"
                     else:
                         msg += f"<b><a href={furl}>Drive Link</a></b>"
                     if INDEX_URL is not None:
